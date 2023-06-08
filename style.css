@@ -17,6 +17,7 @@ html {
     --green: #76DECC;
     --white: white;
     --gradient-1: linear-gradient(104.42deg, #4745D0 0%, #2A27C9 60.23%);
+    --dark-gradient: linear-gradient(188.08deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 93.79%), #060714;
     --purple-dark-10: rgba(42, 39, 201, 0.10);
     --purple-light-15: rgba(82, 76, 255, 0.15);
     --h1-fs: 6.4rem;
@@ -215,7 +216,7 @@ button a {
 .learnmore-btn, .show-more-btn{
     border: 2px solid var(--grey-100);
 }
-.show-more-btn {
+.show-more-btn, .getstarted2-btn{
     width: 100%;
     margin-top: var(--gap-2);
 }
@@ -241,6 +242,7 @@ nav {
     gap: var(--gap-3);
     background-color: var(--purple-dark-100);
     padding: var(--gap-1) var(--gap-2);
+    transition:  ease-in-out 0.5s;
     transform: translateY(-500px);
 }
 #logo-div {
@@ -285,9 +287,7 @@ nav {
 }
 .show-menu {
     transform: translateY(0)!important;
-    transition:  all ease-in-out 0.3s;
 }
-
 
 /* Hero */
 #hero-div {
@@ -296,6 +296,9 @@ nav {
 
 
 /* Latest Auction Section */
+#latest-live-auction-div{
+    margin-top: -25rem;
+}
 #latest-live-auction-div h2{
     text-align: center;
 }
@@ -365,26 +368,35 @@ nav {
 }
 
 
-/* market place 1 */
-#marketplace-div {
+/* market place 1 and market place 2 */
+#marketplace-div, #marketplace2-div {
     display: flex;
-    flex-wrap: wrap-reverse;
     width: 90%;
     padding: 1rem;
     margin: 5rem auto;
     height: 100vh;
 }
-#market-text {
+#marketplace-div {
+    flex-wrap: wrap-reverse;
+}
+#marketplace2-div {
+    flex-wrap: wrap;
+}
+#market-text, #market2-text {
     display: flex;
     flex-direction: column;
     gap: var(--gap-2);
+    flex-shrink: 2;
 }
-#market-img img{
+#market-img, #market2-img {
+    flex-shrink: 1;
+}
+#market-img img, #market2-img img{
     width: 90%;
 }
 #getstarted-learnmore-div {
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     gap: var(--gap-1);
 }
 
@@ -399,16 +411,14 @@ nav {
     width: 90%;
     margin: 5rem auto 0;
 }
-.triple-card {
+.triple-card{
     height: 700px;
     width: clamp(380px, 30%, 400px);
     border-radius: 20px;
     border: 1px solid var(--grey-20);
     overflow: hidden;
 }
-
-/* Hottest sale section */
-#hottest-sales-div, #top-nft-div {
+#hottest-sales-div, #get-started-div, #top-nft-div {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -417,12 +427,15 @@ nav {
     gap: var(--gap-3);
     padding: 2rem;
 }
+
+/* Hottest sale section */
+
 #hottest-card-wrapper {
     display: flex;
-    gap: 20rem;
     justify-content: center;
     align-items: center;
-    margin-left: 38rem;
+    gap: var(--gap-2);
+    margin-left: 9rem;
 }
 .hottest-card {
     display: flex;
@@ -436,7 +449,7 @@ nav {
     opacity: .15;
 }
 .hottest-card-img-div {
-    height: 255px;
+    height: 270px;
     width: 100%;
 }
 .hottest-card-img-div img {
@@ -464,6 +477,32 @@ nav {
 .hot-divider {
     width: 180px;
     margin-top: var(--gap-1);
+}
+
+/* Get started section */
+#get-started-div {
+    background : var(--dark-gradient);
+    color: var(--grey-19);
+}
+#get-started-div h3 {
+    width: 65%;
+}
+#get-started-div p {
+    margin-top: var(--gap-1);
+    color: var(--grey-100);
+}
+.get-started-img-div {
+    width: 400px;
+    height: 400px;
+}
+.get-started-img-div img {
+    position: absolute;
+    top: -60px;
+    left: 30px;
+    width: 80%;
+    height: 70%;
+    mix-blend-mode: lighten;
+    z-index: 100;
 }
 
 /* Top nft section */
@@ -510,8 +549,8 @@ nav {
 
 @media (min-width: 550px){
 
-    /* market place 1 */
-    #marketplace-div {
+    /* market place 1 and market place 2 */
+    #marketplace-div, #marketplace2-div {
         display: flex;
         flex-wrap: nowrap;
         align-items: center;
@@ -520,7 +559,7 @@ nav {
         margin: 0 auto;
         padding: 1rem;
     }
-    #market-text {
+    #market-text, #market2-text {
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
@@ -528,14 +567,8 @@ nav {
         gap: var(--gap-2);
         width: 48%;
     }
-    #market-img {
+    #market-img, #market2-img {
         width: 48%;
-    }
-
-    /* Hottest sale section */
-    #hottest-card-wrapper {
-        gap: var(--gap-2);
-        margin-left: 7rem;
     }
 }
 
@@ -575,5 +608,8 @@ nav {
     /* Hero desktop */
     #hero-div {
         margin-top: var(--gap-3);
+    }
+    #latest-live-auction-div{
+        margin-top: 2rem;
     }
 }
