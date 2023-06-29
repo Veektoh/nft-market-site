@@ -13,7 +13,7 @@
     <header>
         <nav>
             <div id="logo-div">
-                <img src="/images/Logo.svg" alt="Logo" >
+                <img src="images\logos\Logo.svg" alt="Logo" >
                 <button id="menu-bar" class="hide"><i class="fa-solid fa-bars fa-2xl"></i></button>
             </div>
             <div id="menu-wrapper" >
@@ -31,25 +31,28 @@
                 </div>
             </div>
         </nav>
-        <div id="hero-div" class="hide-display">
+        <div id="hero-div" class="">
             <div id="hero-text-div">
-                <h7 class="h7">Non Fungible Tokens</h7>
-                <h1 class="">A new NFT <span></span><br>
-                <span></span>Experience</h1>
+                <h2 class="h7">Non Fungible Tokens</h2>
+                <h1 class="display">A new NFT</h1>
+                <h1 class="display">Experience</h1>
                 <p>Discover, collect and sell</p>
             </div>
             <div id="search-div" class="b-md">
                 <input type="search" name="search" id="search-box" placeholder="Items, collections and creators" />
                 <select id="categories" name="categories" >
-                    <option value="">categories</option>
+                    <option value="">Categories</option>
                     <option value="eth">Eth</option>
                     <option value="sol">Sol</option>
                     <option value="arb">Arb</option>
                   </select>
-                <input type="submit">
+                <button><img src="images/icons/Search Icon.svg" alt="search icon"></button>
             </div>
             <div id="brand-logo">
-                <div class="brand-logo-img-div"></div>
+                <div class="brand-logo-div ritter"></div>
+                <div class="brand-logo-div nike"></div>
+                <div class="brand-logo-div adidas"></div>
+                <div class="brand-logo-div new-holland"></div>
             </div>
         </div>
     </header>
@@ -90,7 +93,7 @@
                      pulvinar ultricies dolor feugiat aliquam commodo.</p>
                 <div id="getstarted-learnmore-div">
                     <button class="btn pri-btn getstarted-btn"><a href="#" >Get started</a></button>
-                    <button class="btn sec-btn learnmore-btn"><a href="#" >Learn more</a></button>
+                    <button class="btn sec-btn btn-border learnmore-btn"><a href="#" >Learn more</a></button>
                 </div>
             </div>
             <div id="market-img">
@@ -149,7 +152,7 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn sec-btn show-more-btn"><a href="#">Show me more</a></button>
+                <button class="btn sec-btn btn-border show-more-btn"><a href="#">Show me more</a></button>
             </div>
             <div id="get-started-div"  class="triple-card">
                 <div class="get-started-img-div">
@@ -266,7 +269,7 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn sec-btn show-more-btn"><a href="#">Show me more</a></button>
+                <button class="btn sec-btn btn-border show-more-btn"><a href="#">Show me more</a></button>
             </div>
         </section>
         <section id="marketplace2-div">
@@ -282,11 +285,154 @@
                 </div>
                 <div id="getstarted-learnmore-div">
                     <button class="btn pri-btn getstarted-btn"><a href="#" >Get started</a></button>
-                    <button class="btn sec-btn learnmore-btn"><a href="#" >Learn more</a></button>
+                    <button class="btn sec-btn btn-border learnmore-btn"><a href="#" >Learn more</a></button>
                 </div>
             </div>
         </section>
+        <section id="popular-auction-div">
+            <h2 class="h4">Most popular live auctions</h2>
+            <div class="categories-div">
+                <ul class="categories-list">
+                    <li><a href="#">Architecture</a></li>
+                    <li><a href="#">Photography</a></li>
+                    <li><a href="#">Games</a></li>
+                    <li><a href="#">Music</a></li>
+                </ul>
+            </div>
+            <div id="popular-auction-card-wrapper"> 
+                <div class="popular-card">
+                    <div class="popular-card-img-div"><img src="images\latest-img-1.png" alt="latest-img-1" /></div>
+                    <div class="popular-card-text-div">
+                        <h3 class="h7">Fames habitasse risus ultricies tortor sit</h3>
+                    </div>
+                    <div class="time-price-div">
+                        <div class="time-div">
+                            <span><i class="fa-regular fa-timer"></i></i></span>
+                            <span>2:41 min left</span>
+                        </div>
+                        <p><span class="h8 price-span">3.19 ETH</span></p>
+                    </div>
+                    <div class="divider hot-divider">
+                    </div>
+                    <div class="bid-div">
+                        <div class="bid">
+                            <p>35 people are bidding</p>
+                        </div>
+                        <div class="like-div">
+                            <button><i class="fa-regular fa-heart fa-beat"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="btn sec-btn btn-border show-more-btn2"><a href="#">Show me more</a></button>
+        </section>
+        <div class="divider section-divider"></div>
+        <section id="stats-wrapper-div">
+            <div class="stats-div">
+                <img src="images\icons\User Icon.svg" alt="User Icon">
+                <h2 class="h2">300k</h2>
+                <p class="b-md">Users Active</p>
+            </div>
+            <div class="stats-div">
+                <img src="images\icons\Artworks Icon.svg" alt="Artworks Icon">
+                <h2 class="h2">52,5k</h2>
+                <p class="b-md">Artworks</p>
+            </div>
+            <div class="stats-div">
+                <img src="images\icons\Artists Icon.svg" alt="Artists Icon">
+                <h2 class="h2">17,5k</h2>
+                <p class="b-md">Artists</p>
+            </div>
+            <div class="stats-div">
+                <img src="images\icons\Wallet Icon.svg" alt="wallet Icon">
+                <h2 class="h2">35.58</h2>
+                <p class="b-md">ETH Spent</p>
+            </div>
+        </section>
+        <section id="scrolling-eth-div">
+            <div class="scrolling-div">
+            </div>
+            <div class="scrolling-div">
+            </div>
+            <div class="scrolling-div">
+            </div>
+            <div class="scrolling-div">
+            </div>
+            <div class="scrolling-div">
+            </div>
+            <div class="scrolling-div">
+            </div>
+            <div class="scrolling-div">
+            </div>
+            <div class="scrolling-div">
+            </div>
+            <div class="scrolling-div">
+            </div>
+            <div class="scrolling-div">
+            </div>
+            <div class="scrolling-div">
+            </div>
+            <div class="scrolling-div">
+            </div>
+            <div class="scrolling-div">
+            </div>
+            <div class="scrolling-div">
+            </div>
+            <div class="scrolling-div">
+            </div>
+            <div class="scrolling-div">
+            </div>
+            <div class="scrolling-div">
+            </div>
+            <div class="scrolling-div">
+            </div>
+        </section>
     </main>
+    <footer>
+        <div class="footer-col">
+            <div class="footer-logo-div">
+                <img src="images\logos\Logo.svg" alt="logo">
+            </div>
+            <div class="footer-link-1">
+                <ul>
+                    <li><a href="#">Support</a></li>
+                    <li><a href="#">Term of service</a></li>
+                    <li><a href="#">License</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-col">
+            <div class="footer-link-2">
+                <ul>
+                    <li><a class="h7" href="#">Auctions</a></li>
+                    <li><a class="h7" href="#">Roadmap</a></li>
+                    <li><a class="h7" href="#">Discover</a></li>
+                    <li><a class="h7" href="#">Community</a></li>
+                </ul>
+            </div>
+            <button class="btn pri-btn myacc-btn">
+                <a href="#">My account</a>
+            </button>
+            <div class="social-links">
+                <a href="#"><img src="images\icons\Facebook Icon.svg" alt="Facebook Icon"></a>
+                <a href="#"><img src="images\icons\LinkedIn Icon.svg" alt="LinkedIn Icon"></a>
+                <a href="#"><img src="images\icons\Github Icon.svg" alt="Github Icon"></a>
+                <a href="#"><img src="images\icons\Twitter Icon.svg" alt="Twitter Icon"></a>
+                <a href="#"><img src="images\icons\Instagram Icon.svg" alt="Instagram Icon"></a>
+            </div>
+        </div>
+        <div class="footer-col">
+            <p>Nibh volutpat, aliquam id sagittis elementum.
+                 Pellentesque laoreet velit,
+                 sed egestas in. Id nam semper dolor tellus vulputate eget
+                  turpis. 
+            </p>
+            <div id="newsletter-div">
+                <input id="newsletter" type="search" placeholder="Newsletter" >
+                <input type="submit" value="Sign in">
+            </div>
+        </div>
+    </footer>
     <script type="text/javascript" src="script.js"></script>
 </body>
 </html>

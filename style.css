@@ -50,6 +50,7 @@ html {
 }
 body {
     font-size: var(--bd-fs-md);
+    overflow-x: hidden;
 }
 a {
     text-decoration: none;
@@ -163,12 +164,21 @@ img {
 }
 .display {
     font-family: var(--ff-1);
-    font-size: var(--display-fs);
+    font-size: clamp(var(--h5-fs), 15vw , var(--display-fs));
     font-weight: var(--fw-bold);
-    line-height: 120px;
+    line-height: 100%;
     letter-spacing: var(--letter-space);
     text-align: center;
+    color: var(--dark-100);
 }
+.divider {
+    width: 100%;
+    border: 1px solid var(--grey-20);
+}
+.section-divider {
+    margin: 7rem 0;
+}
+
 
 /* Buttons */
 button {
@@ -213,18 +223,23 @@ button a {
 .getstarted-btn, .learnmore-btn {
     width: 14.6rem;
 }
-.learnmore-btn, .show-more-btn{
+.btn-border{
     border: 2px solid var(--grey-100);
 }
 .show-more-btn, .getstarted2-btn{
     width: 100%;
     margin-top: var(--gap-2);
 }
+.show-more-btn2 {
+    width: 50%;
+    height: auto;
+}
 
 
 /* Header */
 header {
-    position: relative;
+    background: rgba(255, 255, 255, 0.5) url("../images/Background.svg") center / cover no-repeat;
+    z-index: -10000;
 }
 
 /* navigation */
@@ -233,6 +248,7 @@ nav {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    z-index: 2;
 }
 #menu-wrapper {
     display: flex;
@@ -244,6 +260,7 @@ nav {
     padding: var(--gap-1) var(--gap-2);
     transition:  ease-in-out 0.5s;
     transform: translateY(-500px);
+    z-index: 1;
 }
 #logo-div {
     display: inline-flex;
@@ -291,13 +308,91 @@ nav {
 
 /* Hero */
 #hero-div {
-    margin-top: -30rem;;
+    margin-top: -25rem;
+    text-align: center;
+    color: var(--grey-100);
+    width: 100%;
+}
+#hero-text-div h2 {
+    margin-bottom: var(--gap-1);
+}
+#hero-text-div p {
+    margin-top: var(--gap-1)
+}
+/* search div */
+#search-div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: clamp(200px ,500px, 80%);
+    margin: 8rem auto;
+    padding: var(--gap-1);
+    background-color: var(--white);
+    border-radius: 1rem;
+    border: white solid 4px;
+    box-shadow: 0px 25px 75px 0px rgba(6, 7, 20, 0.10);
+}
+#search-div input,#search-div button, #search-div select {
+    padding: 0.5rem;
+    background-color: var(--white);
+    color: var(--grey-50);
+    opacity: 0.7;
+}
+#search-div input[type="search"] {
+    flex-grow: 3;
+    width: 55%;
+}
+#search-div input[type="search"]:focus,#search-div select:focus {
+    border: none;
+    outline: none;
+}
+#search-div button {
+    flex-grow: 1;
+    width: 8%;
+    margin-left: 1.5rem;
+}
+#search-div select {
+    flex-grow: 1;
+    width: 28%;
+    border-left: var(--grey-20) solid 1.6px;
+}
+#search-div input::placeholder {
+    opacity: 0.7;
 }
 
-
+/* brand logo */
+#brand-logo {
+    display: flex;
+    justify-content: flex-start;
+    gap: 6rem;
+    width: clamp(200px ,500px, 80%);
+    margin: 10rem auto;
+    overflow: hidden;
+}
+.brand-logo-div {
+    width: 8.5rem;
+    height: 4.5rem;
+    flex-shrink: 0;
+    background-size:  center;
+    background-position: contain;
+    background-repeat: no-repeat;
+}
+.ritter {
+    background-image: url("../images/logos/Ritter Sport.svg");
+}
+.nike {
+    background-image: url("../images/logos/Nike.svg");
+}
+.adidas {
+    background-image: url("../images/logos/Adidas.svg");
+}
+.new-holland {
+    background-image: url("../images/logos/New Holland.svg");
+}
 /* Latest Auction Section */
 #latest-live-auction-div{
-    margin-top: -25rem;
+    margin-top: 10rem;
 }
 #latest-live-auction-div h2{
     text-align: center;
@@ -342,10 +437,6 @@ nav {
 .time-div {
     display: flex;
 }
-.divider {
-    width: 300px;
-    border: 1px solid var(--grey-20);
-}
 .bid-div {
     display: flex;
     justify-content: space-between;
@@ -374,7 +465,7 @@ nav {
     width: 90%;
     padding: 1rem;
     margin: 5rem auto;
-    height: 100vh;
+    height: auto;
 }
 #marketplace-div {
     flex-wrap: wrap-reverse;
@@ -437,7 +528,12 @@ nav {
     gap: var(--gap-2);
     margin-left: 9rem;
 }
-.hottest-card {
+.hottest-card:not(:first-child) {
+    opacity: .15;
+}
+
+/* Hottest sale and Popular auction card */
+.hottest-card, .popular-card {
     display: flex;
     flex-direction: column;
     gap: var(--gap-1);
@@ -445,14 +541,11 @@ nav {
     height: auto;
     border-radius: 20px;
 }
-.hottest-card:not(:first-child) {
-    opacity: .15;
-}
-.hottest-card-img-div {
+.hottest-card-img-div, .popular-card-img-div {
     height: 270px;
     width: 100%;
 }
-.hottest-card-img-div img {
+.hottest-card-img-div img, .popular-card-img-div img {
     width: 100%;
     height: 100%;
     border-radius: 20px;
@@ -475,7 +568,6 @@ nav {
     z-index: 100;
 }
 .hot-divider {
-    width: 180px;
     margin-top: var(--gap-1);
 }
 
@@ -545,9 +637,140 @@ nav {
     display: flex;
     justify-content: space-between;
 }
+/* Popular live auction */
+#popular-auction-div {
+    width: 90%;
+    margin: 5rem auto 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#popular-auction-div h2 {
+    text-align: center;
+}
+.categories-list {
+    display: inline-flex;
+    justify-content: center;
+    gap: var(--gap-1);
+    flex-wrap: wrap;
+    margin: var(--gap-2) 0;
+}
+.categories-list li {
+    border-radius: 8px;
+    border: 2px solid var(--grey-20);
+    padding: 0.5rem;
+}
+.categories-list a {
+    color: var(--grey-100);
+}
+#popular-auction-card-wrapper{
+    margin: var(--gap-3);
+}
+
+/* stats section */
+#stats-wrapper-div {
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 5rem auto;
+    gap: var(--gap-2);
+}
+.stats-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: var(--gap-1);
+}
+
+/* scrolling eth div */
+#scrolling-eth-div {
+    display: flex;
+    gap: var(--gap-2);
+    overflow-x: hidden;
+    margin: 10rem -3rem;
+}
+.scrolling-div {
+    width: 70px;
+    height: 70px;
+    border-radius: 20px;
+    flex-shrink: 0;
+    background: var(--grey-50) url("../images/sImage1.png") center / cover no-repeat;
+}
+
+/* footer */
+footer {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+    width: 90%;
+    margin: 5rem auto 0;
+    padding: var(--gap-1);
+    justify-content: center;
+    border-radius: 20px;
+    border: 1px solid var(--grey-20);
+}
+
+.footer-col {
+    width: 100%;
+    height: auto;
+    margin: var(--gap-2);
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-3)
+}
+.footer-link-1 ul {
+    display: flex;
+    gap: var(--gap-2);
+    flex-wrap: wrap;
+}
+.footer-link-1 ul a {
+    color: var(--grey-100);
+}
+.footer-link-2 ul {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-2);
+    flex-wrap: wrap;
+}
+.footer-link-2 ul a {
+    color: var(--dark-100);
+}
+.social-links {
+    display: flex;
+    gap: var(--gap-2);
+}
+#newsletter-div {
+    position: relative;
+}
+#newsletter-div input[type="submit"] {
+    position: absolute;
+    top: 13px;
+    right: 20px;
+    color: var(--purple-light-100);
+    cursor: pointer;
+    background: none;
+    padding: 0.5rem;
+}
+#newsletter-div input[type="search"] {
+    border: 1px solid var(--grey-20);
+    border-radius: 16px;
+    width: 100%;
+    padding: 16px 70px 16px 16px;
+    box-shadow: 0px 25px 75px 0px rgba(6, 7, 20, 0.15);
+}
+#newsletter-div input::placeholder {
+    opacity: 0.3;
+}
+#newsletter-div input:focus {
+    border: 2px solid var(--purple-dark-100);
+    outline: var(--dark-90);
+}
 
 
-@media (min-width: 550px){
+@media (min-width: 780px){
 
     /* market place 1 and market place 2 */
     #marketplace-div, #marketplace2-div {
@@ -570,9 +793,25 @@ nav {
     #market-img, #market2-img {
         width: 48%;
     }
+    /* footer */
+    footer {
+        flex-wrap: nowrap;
+        margin: 8rem auto 2rem;
+        align-items:center;
+        padding: var(--gap-2);
+    }
+    .footer-col {
+        width: 30%;
+        height: 397px;
+        justify-content: space-between;
+    }
 }
 
 @media (min-width: 970px){
+
+    .show-more-btn2 {
+        width: 30%;
+    }
     /* Navigation  */
     nav {
         flex-direction: row;
@@ -581,6 +820,7 @@ nav {
     #logo-div {
         flex: 1;
         box-shadow: none;
+        background-color: var(--grey20);
     }
     #menu-wrapper {
         flex-direction: row;
@@ -607,9 +847,10 @@ nav {
 
     /* Hero desktop */
     #hero-div {
-        margin-top: var(--gap-3);
+        margin-top: 10rem;
     }
     #latest-live-auction-div{
-        margin-top: 2rem;
+        margin-top: 15rem;
     }
+
 }
