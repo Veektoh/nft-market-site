@@ -379,16 +379,16 @@ nav {
     background-repeat: no-repeat;
 }
 .ritter {
-    background-image: url("../images/logos/Ritter Sport.svg");
+    background-image: url("./images/logos/Ritter Sport.svg");
 }
 .nike {
-    background-image: url("../images/logos/Nike.svg");
+    background-image: url("./images/logos/Nike.svg");
 }
 .adidas {
-    background-image: url("../images/logos/Adidas.svg");
+    background-image: url("./images/logos/Adidas.svg");
 }
 .new-holland {
-    background-image: url("../images/logos/New Holland.svg");
+    background-image: url("./images/logos/New Holland.svg");
 }
 /* Latest Auction Section */
 #latest-live-auction-div{
@@ -697,7 +697,7 @@ nav {
     height: 70px;
     border-radius: 20px;
     flex-shrink: 0;
-    background: var(--grey-50) url("../images/sImage1.png") center / cover no-repeat;
+    background: var(--grey-50) url("./images/sImage1.png") center / cover no-repeat;
 }
 
 /* footer */
