@@ -50,7 +50,6 @@ html {
 }
 body {
     font-size: var(--bd-fs-md);
-    overflow-x: hidden;
 }
 a {
     text-decoration: none;
