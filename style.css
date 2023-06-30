@@ -401,6 +401,7 @@ nav {
 #live-auction-card-wrapper {
     display: flex;
     gap: var(--gap-2);
+    margin-left: var(--gap-2);
     overflow: hidden;
 }
 .live-auction-card {
