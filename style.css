@@ -50,6 +50,7 @@ html {
 }
 body {
     font-size: var(--bd-fs-md);
+    /* overflow-x: hidden; */
 }
 a {
     text-decoration: none;
@@ -341,6 +342,7 @@ nav {
 #search-div input[type="search"] {
     flex-grow: 3;
     width: 55%;
+    appearance: none;
 }
 #search-div input[type="search"]:focus,#search-div select:focus {
     border: none;
@@ -396,8 +398,14 @@ nav {
 #latest-live-auction-div h2{
     text-align: center;
 }
+#live-auction-card-wrapper {
+    display: flex;
+    gap: var(--gap-2);
+    overflow: hidden;
+}
 .live-auction-card {
     display: flex;
+    flex-shrink: 0;
     flex-direction: column;
     gap: var(--gap-1);
     padding: 2.4rem;
@@ -409,11 +417,13 @@ nav {
 .live-auction-card-img-div {
     height: 340px;
     width: 300px;
+    background-color: var(--grey-20);
+    border-radius: 20px;
+    overflow: hidden;
 }
 .live-auction-card-img-div img {
     width: 100%;
     height: 100%;
-    border-radius: 20px;
     object-fit: cover;
 }
 .live-auction-card-text-div {
@@ -435,6 +445,7 @@ nav {
 }
 .time-div {
     display: flex;
+    gap: 0.5rem;
 }
 .bid-div {
     display: flex;
@@ -447,14 +458,24 @@ nav {
     width: 250px;
     align-items: center;
 }
-.bid-avater img {
+.bid-avater div {
     height: 28px;
     width: 28px;
     border-radius: 50%;
+    overflow: hidden;
+    background-color: var(--grey-20);
+}
+.bid-avater div img {
+    height: 100%;
+    width: 100%;
     object-fit: fill;
 }
 .bid-avater p {
     margin-left: 1rem;
+}
+.like-div {
+    display: flex;
+    gap: 0.2rem;
 }
 
 
@@ -521,11 +542,11 @@ nav {
 /* Hottest sale section */
 
 #hottest-card-wrapper {
+    width: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
     gap: var(--gap-2);
-    margin-left: 9rem;
+    margin-left: 3rem;
+    /* overflow: auto; */
 }
 .hottest-card:not(:first-child) {
     opacity: .15;
@@ -537,17 +558,20 @@ nav {
     flex-direction: column;
     gap: var(--gap-1);
     width: 180px;
-    height: auto;
+    height: 100%;
     border-radius: 20px;
+    flex-shrink: 0;
 }
 .hottest-card-img-div, .popular-card-img-div {
     height: 270px;
     width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: var(--grey-20);
 }
 .hottest-card-img-div img, .popular-card-img-div img {
     width: 100%;
     height: 100%;
-    border-radius: 20px;
     object-fit: fill;
 }
 .time-price-div {
@@ -621,11 +645,14 @@ nav {
 .top-nft-left-col {
     width: 160px;
     height: 100px;
+    background-color: var(--grey-20);
+    border-radius: 20px;
+    overflow: hidden;
 }
 .top-nft-left-col img {
     width: 100%;
     height: 100%;
-    border-radius: 20px;
+    object-fit: fill;
 }
 .top-nft-right-col {
     display: flex;
@@ -638,11 +665,12 @@ nav {
 }
 /* Popular live auction */
 #popular-auction-div {
-    width: 90%;
+    width: 100%;
     margin: 5rem auto 0;
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow: hidden;
 }
 #popular-auction-div h2 {
     text-align: center;
@@ -664,6 +692,8 @@ nav {
 }
 #popular-auction-card-wrapper{
     margin: var(--gap-3);
+    display: flex;
+    gap: var(--gap-3)
 }
 
 /* stats section */
@@ -686,17 +716,22 @@ nav {
 
 /* scrolling eth div */
 #scrolling-eth-div {
+    width: 100%;
     display: flex;
     gap: var(--gap-2);
     overflow-x: hidden;
-    margin: 10rem -3rem;
+    padding: 0 1rem;
+    margin: 10rem 0;
 }
 .scrolling-div {
     width: 70px;
     height: 70px;
     border-radius: 20px;
     flex-shrink: 0;
-    background: var(--grey-50) url("./images/sImage1.png") center / cover no-repeat;
+    background-color: var(--grey-50);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 /* footer */
@@ -778,7 +813,7 @@ footer {
         align-items: center;
         justify-content: space-between;
         width: 80%;
-        margin: 0 auto;
+        margin: 10rem auto;
         padding: 1rem;
     }
     #market-text, #market2-text {
@@ -850,6 +885,10 @@ footer {
     }
     #latest-live-auction-div{
         margin-top: 15rem;
+    }
+    /* popular auction */
+    #popular-auction-div{
+        width: 80%;
     }
 
 }
