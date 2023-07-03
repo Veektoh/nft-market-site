@@ -252,9 +252,9 @@ function getBtn(btn) {
     btn = document.querySelector(btn);
     return btn;
 }
-function loadCarousel (slideContainer, slide, btn) {
+function loadCarousel (slideContainer, btn) {
     const slideArray = getSlideArray(slideContainer);
-    const slideWidth = getSlideWidth(slide);
+    const slideWidth = 200;
     const nxtBtn = getBtn(btn);
     let currentIndex = 0;
 
@@ -273,5 +273,5 @@ function loadCarousel (slideContainer, slide, btn) {
     });
 }
 
-loadCarousel ('#hottest-card-wrapper', '.hottest-card', '.hottest-card-next-btn');
+loadCarousel ('#hottest-card-wrapper', '.hottest-card-next-btn');
 // loadCarousel ('#popular-auction-card-wrapper', '.popular-card');
