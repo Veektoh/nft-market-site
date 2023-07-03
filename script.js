@@ -246,7 +246,7 @@ function getSlideWidth(slide) {
     return slideWidth;
 }
 function getSlidePosition(slideWidth, index) {
-    return slideWidth * index + "px";
+    return slideWidth * index + 20 + "px";
 }
 function getBtn(btn) {
     btn = document.querySelector(btn);
