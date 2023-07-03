@@ -401,7 +401,7 @@ nav {
 #live-auction-card-wrapper {
     display: flex;
     gap: var(--gap-2);
-    margin-left: var(--gap-2);
+    margin-left: var(--gap-3);
     overflow: hidden;
 }
 .live-auction-card {
@@ -546,11 +546,14 @@ nav {
     width: 100%;
     display: flex;
     gap: var(--gap-2);
-    margin-left: 3rem;
-    /* overflow: auto; */
+    margin-left: 4rem;
+    overflow: hidden;
 }
 .hottest-card:not(:first-child) {
     opacity: .15;
+}
+.hottest-card {
+    transition: all 1s ease-in-out;
 }
 
 /* Hottest sale and Popular auction card */
@@ -579,7 +582,7 @@ nav {
     display: flex;
     justify-content: space-between;
 }
-.next-btn {
+.hottest-card-next-btn {
     position: absolute;
     font-size: var(--h6-fs);
     background-color: var(--white);
@@ -694,9 +697,14 @@ nav {
 #popular-auction-card-wrapper{
     margin: var(--gap-3);
     display: flex;
-    gap: var(--gap-3)
+    gap: var(--gap-3);
+    position: relative;
 }
-
+/* .popular-card-nxt-btn {
+    outline: black 1px dashed;
+    position: absolute;
+    height: 1000px;
+} */
 /* stats section */
 #stats-wrapper-div {
     width: 80%;
@@ -733,6 +741,7 @@ nav {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    /* background-image: url("images/scrolls/img (3).png") */
 }
 
 /* footer */

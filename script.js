@@ -1,22 +1,21 @@
 
 // menu button toggle
 function toggleMenu () {
-    menu = document.querySelector("#menu-wrapper");
+    const menu = document.querySelector("#menu-wrapper");
     menu.classList.toggle("show-menu");
 }
 function btnToggle () {
-    menuBtn = document.getElementById("menu-bar");
+    const menuBtn = document.getElementById("menu-bar");
     menuBtn.addEventListener("click", toggleMenu);
 }
 btnToggle ()
 
-// Latest live auction
-
+// custom data array 
 const latestAuctions = [
     {
         id: 1,
         title: "Tristique diam a, enim, eros tellus. Viverra etiam",
-        price: "3.25",
+        price: "3.85",
         avatar : ["09", "06", "08"],
         time: "1:41",
         likes: "30"
@@ -73,7 +72,7 @@ const latestAuctions = [
 
 // load live auction
 function loadAuction () {
-    latestAuctionDiv = document.getElementById("live-auction-card-wrapper");
+    const latestAuctionDiv = document.getElementById("live-auction-card-wrapper");
     latestAuctions.map((latestAuction) => {
         const latestAuctionCard = document.createElement("div");
         latestAuctionCard.classList.add("live-auction-card");
@@ -111,8 +110,8 @@ function loadAuction () {
 loadAuction ()
 
 //load hottest sale
+const hottestSaleDiv = document.getElementById("hottest-card-wrapper");
 function loadHottestSale() {
-    hottestSaleDiv = document.getElementById("hottest-card-wrapper");
     latestAuctions.map((hottestSale)=> {
         const hottestSaleCard = document.createElement("div");
         hottestSaleCard.classList.add("hottest-card");
@@ -149,7 +148,7 @@ loadHottestSale();
 
 //load popular auction
 function loadpopularAuction() {
-    popularAuctionDiv = document.getElementById("popular-auction-card-wrapper");
+    const popularAuctionDiv = document.getElementById("popular-auction-card-wrapper");
     latestAuctions.map((popularAuction)=> {
         const popularAuctionCard = document.createElement("div");
         popularAuctionCard.classList.add("popular-card");
@@ -186,7 +185,7 @@ loadpopularAuction()
 
 //lad top nft 
 function loadtopNft() {
-    topNftDiv = document.getElementById("top-nft-card-wrapper");
+    const topNftDiv = document.getElementById("top-nft-card-wrapper");
     latestAuctions.map((topNft)=> {
         const topNftCard = document.createElement("div");
         topNftCard.classList.add("top-nft-card");
@@ -223,14 +222,56 @@ loadtopNft();
 
 //load scrolling eth image
 function scrollImage () {
-    scrollDiv = document.querySelector("#scrolling-eth-div");
+    const scrollDiv = document.querySelector("#scrolling-eth-div");
     latestAuctions.map ((item) => {
-        scrollDivClass = document.querySelector(".scrolling-div");
         const scrollImageDiv = document.createElement("div");
         scrollImageDiv.classList.add("scrolling-div");
-        scrollDivClass.style.backgroundImage = "url(/images/scrolls/img (1).png)";
-    })
-    console.log(scrollDivClass.style)
+        scrollImageDiv.style.backgroundImage = `url("images/scrolls/img (${item.id}).png")`;
+        scrollDiv.appendChild(scrollImageDiv);
+    });
+}
+scrollImage();
+
+
+// hottest card carousel
+
+function getSlideArray(slideContainer) {
+    const slideContainerChildren = document.querySelector(slideContainer).children;
+    const slideArray = Array.from(slideContainerChildren);
+    return slideArray;
+}
+function getSlideWidth(slide) {
+    slide = document.querySelector(slide);
+    const slideWidth = slide.getBoundingClientRect().width;
+    return slideWidth;
+}
+function getSlidePosition(slideWidth, index) {
+    return slideWidth * index + "px";
+}
+function getBtn(btn) {
+    btn = document.querySelector(btn);
+    return btn;
+}
+function loadCarousel (slideContainer, slide, btn) {
+    const slideArray = getSlideArray(slideContainer);
+    const slideWidth = getSlideWidth(slide);
+    const nxtBtn = getBtn(btn);
+    let currentIndex = 0;
+
+    nxtBtn.addEventListener('click', () => {
+        currentIndex++;
+        const slidePosition = getSlidePosition(slideWidth, currentIndex);
+
+        if (currentIndex >= slideArray.length) {
+            return;
+        }
+
+        slideArray[currentIndex].style.opacity = "1";
+        slideArray.forEach((item) => {
+            item.style.transform = ` translateX(-${slidePosition})`;
+        });
+    });
 }
 
-scrollImage();
+loadCarousel ('#hottest-card-wrapper', '.hottest-card', '.hottest-card-next-btn');
+// loadCarousel ('#popular-auction-card-wrapper', '.popular-card');
