@@ -22,7 +22,7 @@ function disabledDarkMode (){
 if (darkMode === 'enabled'){
     enableDarkMode();
 }
-darktogglerIcon.addEventListener('click', (e)=>{
+darkTogglerIcon.addEventListener('click', (e)=>{
     darkMode = localStorage.getItem('darkMode');
     if (darkMode !== 'enabled') {
         enableDarkMode();
