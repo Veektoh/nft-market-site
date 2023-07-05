@@ -4,6 +4,8 @@ html {
     font-size: 10px;
     --ff-1 : 'Sora', sans-serif;
     --ff-2: 'Inter', sans-serif;
+    --primary-color: var(--dark-100);
+    --secondary-color: var(--white);
     --grey-100: #7780A1;
     --dark-100: #060714;
     --dark-90: #262840;
@@ -48,8 +50,15 @@ html {
     scroll-behavior: smooth;
     /* outline: black 1px dashed; */
 }
+.dark-theme {
+    --primary-color: var(--white);
+    --secondary-color: var(--dark-100);
+     /* transition: all 5s ease-in-out; */
+}
 body {
     font-size: var(--bd-fs-md);
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
     /* overflow-x: hidden; */
 }
 a {
@@ -169,7 +178,7 @@ img {
     line-height: 100%;
     letter-spacing: var(--letter-space);
     text-align: center;
-    color: var(--dark-100);
+    color: var(--primary-color);
 }
 .divider {
     width: 100%;
@@ -238,8 +247,19 @@ button a {
 
 /* Header */
 header {
-    background: rgba(255, 255, 255, 0.5) url("../images/Background.svg") center / cover no-repeat;
+    background-image: url("../images/Background.svg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
     z-index: -10000;
+}
+
+/* toggle dark mode */
+.dark-mode-toggle i {
+    font-size: 25px;
+    margin-right: 5rem;
+    color: var(--dark-100);
+    transition: all 1sec ease-in;
 }
 
 /* navigation */
@@ -401,22 +421,22 @@ nav {
 #live-auction-card-wrapper {
     display: flex;
     gap: var(--gap-2);
-    margin-left: var(--gap-3);
+    margin-left: var(--gap-1);
     overflow: hidden;
 }
-.live-auction-card {
+.live-auction-card{
     display: flex;
     flex-shrink: 0;
     flex-direction: column;
     gap: var(--gap-1);
     padding: 2.4rem;
     height: auto;
-    width: 350px;
+    width: 350px ;
     border-radius: 20px;
     overflow: hidden;
 }
 .live-auction-card-img-div {
-    height: 340px;
+    height: 380px;
     width: 300px;
     background-color: var(--grey-20);
     border-radius: 20px;
@@ -477,6 +497,11 @@ nav {
 .like-div {
     display: flex;
     gap: 0.2rem;
+}
+.time-div i {
+    color: var(--primary-color);
+    font-size: var(--h6-fs);
+    font-weight: light;
 }
 
 
@@ -552,9 +577,6 @@ nav {
 .hottest-card:not(:first-child) {
     opacity: .15;
 }
-.hottest-card {
-    transition: all 1s ease-in-out;
-}
 
 /* Hottest sale and Popular auction card */
 .hottest-card, .popular-card {
@@ -562,9 +584,10 @@ nav {
     flex-direction: column;
     gap: var(--gap-1);
     width: 180px;
-    height: 100%;
+    height: 504px;
     border-radius: 20px;
     flex-shrink: 0;
+    transition: all 0.5s ease-in-out;
 }
 .hottest-card-img-div, .popular-card-img-div {
     height: 270px;
@@ -578,21 +601,30 @@ nav {
     height: 100%;
     object-fit: fill;
 }
+.popular-card-text-div, .hottest-card-text-div {
+    margin: 1rem 0;
+    height: 10%;
+}
 .time-price-div {
     display: flex;
     justify-content: space-between;
 }
-.hottest-card-next-btn {
+.hottest-card-next-btn, .hottest-card-previous-btn {
     position: absolute;
     font-size: var(--h6-fs);
     background-color: var(--white);
     color: var(--dark-90);
     top: 38%;
-    right: 10%;
     width: 50px;
     height: 50px;
     border-radius: 50%;
     z-index: 100;
+}
+.hottest-card-next-btn {
+    right: 10%;
+}
+.hottest-card-previous-btn {
+    left: 1%;
 }
 .hot-divider {
     margin-top: var(--gap-1);
@@ -647,8 +679,8 @@ nav {
     gap: var(--gap-2);
 }
 .top-nft-left-col {
-    width: 160px;
-    height: 100px;
+    width: 30%;
+    height: 120px;
     background-color: var(--grey-20);
     border-radius: 20px;
     overflow: hidden;
@@ -656,9 +688,10 @@ nav {
 .top-nft-left-col img {
     width: 100%;
     height: 100%;
-    object-fit: fill;
+    object-fit: cover;
 }
 .top-nft-right-col {
+    width: 60%;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
@@ -669,12 +702,14 @@ nav {
 }
 /* Popular live auction */
 #popular-auction-div {
+    position: relative;
     width: 100%;
     margin: 5rem auto 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     overflow: hidden;
+    /* outline: black 1px dashed; */
 }
 #popular-auction-div h2 {
     text-align: center;
@@ -699,12 +734,25 @@ nav {
     display: flex;
     gap: var(--gap-3);
     position: relative;
+    align-self: flex-start;
 }
-/* .popular-card-nxt-btn {
-    outline: black 1px dashed;
+.popular-card-next-btn, .popular-card-previous-btn {
     position: absolute;
-    height: 1000px;
-} */
+    font-size: var(--h6-fs);
+    background-color: var(--white);
+    color: var(--dark-90);
+    top: 40%;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    z-index: 100;
+}
+.popular-card-next-btn {
+    right: 1%;
+}
+.popular-card-previous-btn {
+    left: 1%;
+}
 /* stats section */
 #stats-wrapper-div {
     width: 80%;
@@ -780,7 +828,7 @@ footer {
     flex-wrap: wrap;
 }
 .footer-link-2 ul a {
-    color: var(--dark-100);
+    color: var(--primary-color);
 }
 .social-links {
     display: flex;
@@ -852,7 +900,10 @@ footer {
 }
 
 @media (min-width: 970px){
-
+    /* dark mode toggle */
+    .dark-mode-toggle i {
+        color: var(--primary-color);
+    }
     .show-more-btn2 {
         width: 30%;
     }

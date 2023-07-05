@@ -9,11 +9,14 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://kit.fontawesome.com/d73527ae18.js" crossorigin="anonymous"></script>
 </head>
-<body class="b-nm">
+<body class="b-nm dark-them">
     <header>
         <nav>
             <div id="logo-div">
                 <img src="images\logos\Logo.svg" alt="Logo" >
+                <div class="dark-mode-toggle">
+                    <button><i class="fa-solid fa-moon dark-toggle-icon"></i></button>
+                </div>
                 <button id="menu-bar" class="hide"><i class="fa-solid fa-bars fa-2xl"></i></button>
             </div>
             <div id="menu-wrapper" >
@@ -103,7 +106,8 @@
         </section>
         <section id="triple-section">
             <div id="hottest-sales-div" class="triple-card">
-                <button class="hottest-card-next-btn"><i class='hottest-card-next-icon bx bxs-chevron-right' ></i></button>
+                <button class="hottest-card-previous-btn"><i class='bx bxs-chevron-left' ></i></button>
+                <button class="hottest-card-next-btn"><i class='bx bxs-chevron-right' ></i></button>
                 <h3 class="h5">Check out the hottest Sale offers</h3>
                 <div id="hottest-card-wrapper">
                     <!-- <div class="hottest-card">
@@ -203,7 +207,6 @@
                 </ul>
             </div>
             <div id="popular-auction-card-wrapper">
-                <!-- <button class="popular-card-nxt-btn"><i class='hottest-card-next-icon bx bxs-chevron-right' ></i></button>  -->
                 <!-- <div class="popular-card">
                     <div class="popular-card-img-div"><img src="images\latest-img-1.png" alt="latest-img-1" /></div>
                     <div class="popular-card-text-div">
@@ -228,6 +231,8 @@
                     </div>
                 </div> -->
             </div>
+            <button class="popular-card-next-btn"><i class='bx bxs-chevron-right' ></i></button>
+            <button class="popular-card-previous-btn"><i class='bx bxs-chevron-left' ></i></button> 
             <button class="btn sec-btn btn-border show-more-btn2"><a href="#">Show me more</a></button>
         </section>
         <div class="divider section-divider"></div>
